@@ -50,8 +50,20 @@ public class Ex06Loop {
 		}while(i<5);
 		System.out.println();
 	}
+	static void switchM() {
+		int i = 0;
+		do {
+			switch(i) {
+			case 1: System.out.print(1 + "\t"); break;
+			case 2: System.out.print(2 + "\t"); break;
+			case 3: System.out.print(3 + "\t"); break;
+			case 4: System.out.print(4 + "\t"); break;
+			case 5: System.out.print(5 + "\t"); break;
+			}
+		}while(i++<5);
+	}
 	public static void main(String[] args) {
-		forM(); whileM(); doWhileM();
+		forM(); whileM(); doWhileM(); switchM();
 	}
 
 }
