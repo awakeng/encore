@@ -2,8 +2,9 @@ package step01.apply;
 
 public class Test {
 	
-	static void PrintMovieUbd(MovieAudience[] a) {
-		MovieAudience[] v = {new MovieAudience("엄복동", 1), new MovieAudience("명량", 100)};
+	static MovieAudience[] PrintMovieUbd(MovieAudience[] a) {
+		MovieAudience[] v = {new MovieAudience("명량", 100)};
+		return v;
 	}
 	
 	public static void main(String[] args) {
