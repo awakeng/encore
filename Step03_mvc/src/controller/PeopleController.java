@@ -3,7 +3,7 @@
  * 하나의 메소드에서 if 분기문으로 로직 구분
  * StartView.java에서 Controller에서 요청시
  * 분기문에 사용될 비교 데이터로 요청
- * 1 - 모든 검색, 2 개인 검색, 3 - 가입(저장), 4 - 삭제, 5 - 수정
+ * 1 - 모든 검색, 2 개인 검색, 3 - 가입(저장), 4 - 삭제, 5 - 수정(name값 기준으로 age가 증가)
  */
 package controller;
 
@@ -19,6 +19,8 @@ public class PeopleController {
 			
 		}else if(reqNomber == 2) {
 			
+			PeopleModel.pick("박현민");
+			
 		}else if(reqNomber == 3) {
 			
 			boolean r = PeopleModel.insert(new People("encoreMan", 20));	// encoreman생성, 20 생성, People로 결합, insert요청
@@ -29,9 +31,9 @@ public class PeopleController {
 			}
 			
 		}else if(reqNomber == 4) {
-			PeopleModel.delete("encoreman");
+			PeopleModel.delete("encoreMan");
 		}else if(reqNomber == 5) {
-			
+			PeopleModel.update("박현민", 20);
 		}else {
 			EndView.printFail("요청하신 정보는 서비스 할 수 없습니다.");
 		}

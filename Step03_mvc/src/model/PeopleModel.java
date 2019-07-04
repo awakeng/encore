@@ -9,7 +9,6 @@ public class PeopleModel {
 	//test 데이터 저장
 	//byte code가 로딩될 때 자동으로 실행되는 특화된 코드	// byte code란?
 	static {
-		System.out.println(1);
 		allData[0] = new People("변영인", 27);
 		allData[1] = new People("최성국", 29);
 		allData[2] = new People("박현민", 28);
@@ -90,17 +89,34 @@ public class PeopleModel {
 	
 	//수정
 	
+	public static void update(String name, int age) {
+		People v = null;
+		for(int i = 0; i < allData.length; i++) {
+			v = allData[i];
+			if(v != null && v.getName().equals(name)) {
+				v.setAge(age);
+				System.out.println(v.toString());
+			}
+		}
+	}
+	
 	//한 사람 정보만 검색
+	public static void pick(String name) {
+		People v = null;
+		for(int i = 0; i < allData.length; i++) {
+			v = allData[i];
+			if(v != null && v.getName().equals(name)) {
+				System.out.println(name + "이 " + i + "번째에 존재합니다.");
+				return;
+			}
+		}
+		System.out.println(name + " 이 존재하지 않습니다.");
+	}
 	
 	//모든 사람들 검색
 	/* 단순하게 배열 자체를 반환 - Controller가 받아서 View에게 출력을 위임 */
 	public static People[] getAll() {
 		return allData;
-	}
-	
-	//개발시 PeopleModel의 단순 확인용 즉 단위테스트 용으로 적용, 차후엔 삭제 예정
-	public static void main(String[] args) {
-		System.out.println(2);
 	}
 	
 }

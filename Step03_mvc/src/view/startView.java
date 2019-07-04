@@ -19,6 +19,8 @@ public class startView {
 		PeopleController.request(4);
 		System.out.println("-- 삭제 후 모든 검색 --");
 		PeopleController.request(1);
+		PeopleController.request(2);
+		PeopleController.request(5);
 	}
 
 }

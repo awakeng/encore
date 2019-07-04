@@ -15,6 +15,12 @@ public class EndView {
 		}
 	}
 	
+//	public static void printOne(People[] all) {
+//		for(People v : all) {
+//			if()
+//		}
+//	}
+	
 	public static void printSuccess(String msg) {
 		System.out.println(msg);
 	}
