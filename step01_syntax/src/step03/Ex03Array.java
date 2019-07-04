@@ -7,7 +7,7 @@
  * 2. 특징
  * 	1. 기본타입, 참조타입 모두 배열화 가능
  * 	2. 모든 배열은 무조건 객체		// 객체 생성 방식으로 초기화 없이 로컬 공간에서도  생성 가능 // int [] i = new int[2];
- * 		- 자바 객체들 저장되는 메모리 heap에 저장	// heap에 저장했다 => 초기화 자동으로 진행
+ * 		- 자바 객체들이 저장되는 메모리 heap에 저장	// heap에 저장했다 => 초기화 자동으로 진행
  * 		- 멤버변수 자동 초기화처럼 배열도 초기화
  * 	3. 생성된 메모리의 개수값을 보유한 length 변수가 자동 생성 // a[].length ??
  * 
@@ -37,7 +37,7 @@ public class Ex03Array {
 		int[] i2 = {30, 40};	// 이렇게 해도 배열은 무조건 객체다.
 		System.out.println(i2[0] + " " + i.length);
 		
-		//int[] i3 = {i, i2};
+		//int[] i3 = ArrayUtils.addAll(i, i2); // 두 배열 어떻게 합치나?
 		//
 		return i2;
 	}
@@ -55,7 +55,6 @@ public class Ex03Array {
 		for(int data : v) { // 개발자들이 저장한 데이터값에 한해서만 활용
 			System.out.println(data);
 		}
-
 	}
 
 }

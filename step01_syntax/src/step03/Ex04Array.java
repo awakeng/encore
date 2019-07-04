@@ -8,6 +8,9 @@ public class Ex04Array {
 	
 	static Student[] studentArray() {
 		Student[] v = {new Student("신용기", 30), new Student("이준현", 25)};
+		// Student v[0] = {new Student("신용기", 30)};
+		// Student v[1] = {new Student("이준현", 25)};
+		// 와 같은 작업을 수행한 것임
 		return v;
 	}
 	
@@ -29,7 +32,7 @@ public class Ex04Array {
 	public static void main(String[] args) {
 		Student[] w = studentArray();
 		for(Student data : w) {
-			System.out.println(data);
+			System.out.println(data.getPrivateNo());
 		}
 		
 		printStudentName(w);
