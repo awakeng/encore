@@ -19,10 +19,8 @@ public class Ex02Static {
 	public static void main(String[] args) {
 		Ex02Static x1 = new Ex02Static();
 		System.out.println(x1.no1 + " " + no2);
-		
 		Ex02Static x2 = new Ex02Static();
 		System.out.println(x2.no1 + " " + no2);
-		
 		Ex02Static x3 = new Ex02Static();
 		System.out.println(x3.no1 + " " + no2);
 	}

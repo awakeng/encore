@@ -14,17 +14,20 @@ public class EndView {
 			}
 		}
 	}
-	
-//	public static void printOne(People[] all) {
-//		for(People v : all) {
-//			if()
-//		}
-//	}
-	
+
+
+	public static void printUpdatesuccess(String msg) {
+		System.out.println(msg);	
+	}
+	public static void printPickSuccess(String msg) {
+		System.out.println(msg);		
+	}
+	public static void printDeleteSuccess(String msg) {
+		System.out.println(msg);
+	}
 	public static void printSuccess(String msg) {
 		System.out.println(msg);
 	}
-
 	public static void printFail(String msg) {
 		System.out.println(msg);
 	}

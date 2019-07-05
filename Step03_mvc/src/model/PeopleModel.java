@@ -63,20 +63,8 @@ public class PeopleModel {
 	 *  */
 	
 	
-//	public static boolean d2elete(String name) {
-//		int tmp=0;
-//		for(People v : allData) {
-//			if(v != null && v.getName().equals(name)) {
-//				allData[tmp] = null;
-//				return true;
-//			}
-//			tmp++;
-//		}
-//		return false;
-//	}
-	
-	public static boolean delete(String name) {
-		People v = null;
+	public static boolean delete(String name) {		
+		People v = null;								// 변수를 선언하는 위치에 따라 메모리 할당량이 달라진다. People v가 단 한 번 선언됐지만 for문 안에 들어가면 n번 만큼 반복 선언된다.
 		for(int i = 0; i < allData.length; i++) {
 			v = allData[i];
 			if(v != null && v.getName().equals(name)) {
@@ -89,28 +77,28 @@ public class PeopleModel {
 	
 	//수정
 	
-	public static void update(String name, int age) {
+	public static boolean update(String name, int age) {
 		People v = null;
 		for(int i = 0; i < allData.length; i++) {
 			v = allData[i];
 			if(v != null && v.getName().equals(name)) {
 				v.setAge(age);
-				System.out.println(v.toString());
+				return true;
 			}
 		}
+		return false;
 	}
 	
 	//한 사람 정보만 검색
-	public static void pick(String name) {
+	public static boolean pick(String name) {
 		People v = null;
 		for(int i = 0; i < allData.length; i++) {
 			v = allData[i];
 			if(v != null && v.getName().equals(name)) {
-				System.out.println(name + "이 " + i + "번째에 존재합니다.");
-				return;
+				return true;
 			}
 		}
-		System.out.println(name + " 이 존재하지 않습니다.");
+		return false;
 	}
 	
 	//모든 사람들 검색

@@ -19,7 +19,13 @@ public class PeopleController {
 			
 		}else if(reqNomber == 2) {
 			
-			PeopleModel.pick("박현민");
+			boolean result = PeopleModel.pick("박현민");
+			if(result) {
+				EndView.printPickSuccess("입력하신 이름이 존재합니다.");
+			}
+			else {
+				EndView.printFail("존재하지 않는 이름입니다.");
+			}
 			
 		}else if(reqNomber == 3) {
 			
@@ -31,11 +37,22 @@ public class PeopleController {
 			}
 			
 		}else if(reqNomber == 4) {
-			PeopleModel.delete("encoreMan");
-		}else if(reqNomber == 5) {
-			PeopleModel.update("박현민", 20);
-		}else {
-			EndView.printFail("요청하신 정보는 서비스 할 수 없습니다.");
+			boolean result = PeopleModel.delete("encoreMan");
+			if(result){
+				EndView.printDeleteSuccess("삭제 성공");
+			}else{
+				EndView.printFail("삭제 실패");
+			}			
+		}
+		
+		else if(reqNomber == 5) {
+			boolean result = PeopleModel.update("박현민", 20);
+			if(result) {
+				EndView.printUpdatesuccess("수정 성공");
+			}
+			else {
+				EndView.printFail("수정 실패");
+			}
 		}
 	}
 }

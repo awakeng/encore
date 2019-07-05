@@ -2,7 +2,7 @@ package view;
 
 import controller.PeopleController;
 
-public class startView {
+public class StartView {
 
 	public static void main(String[] args) {
 		/* 
@@ -19,8 +19,10 @@ public class startView {
 		PeopleController.request(4);
 		System.out.println("-- 삭제 후 모든 검색 --");
 		PeopleController.request(1);
-		PeopleController.request(2);
 		PeopleController.request(5);
+		System.out.println("-- 수정 후 개인 검색 --");
+		PeopleController.request(2);
+		PeopleController.request(1);
 	}
 
 }
