@@ -30,9 +30,9 @@ public class EndView {
 	public static void printGetAvgSuccess(float avg) {
 		System.out.println("해당 학생의 평균 점수는: " + avg + "입니다.");
 	}
-//	public void printGetRankSuccess(int rank) {
-//		System.out.println("해당 학생의 석차는: " + rank + "입니다.");
-//	}
+	public static void printGetRankSuccess(int rank) {
+		System.out.println("해당 학생의 석차는: " + rank + "입니다.");
+	}
 	public static void printFailure(String msg) {
 		System.out.println(msg);
 	}

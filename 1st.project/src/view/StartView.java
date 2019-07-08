@@ -19,6 +19,8 @@ public class StartView {
 		System.out.println("=========정이본 성적 수정 후 전체 검색");
 		StudentController.request(5);
 		StudentController.request(1);
+		StudentController.request(6);
+		StudentController.request(7);
 	}
 
 }

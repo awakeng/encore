@@ -5,7 +5,6 @@ import model.domain.Student;
 public class StudentModel {
 	private static Student[] allData = new Student[10];
 	private static int index;
-	private Student v= null;
 	
 	private static StudentModel instance;
 	
@@ -34,7 +33,8 @@ public class StudentModel {
 		}
 	}	
 	//삭제
-	public boolean delete(String name) {		
+	public boolean delete(String name) {
+		Student v = null;
 		for(int i = 0; i < allData.length; i++) {
 			v = allData[i];
 			if(v != null && v.getName().equals(name)) {
@@ -46,6 +46,7 @@ public class StudentModel {
 	}
 	//수정
 	public boolean update(String name, float midTerm, float finalTerm) {
+		Student v = null;
 		for(int i = 0; i < allData.length; i++) {
 			v = allData[i];
 			if(v != null && v.getName().equals(name)) {
@@ -57,6 +58,7 @@ public class StudentModel {
 	}
 	//한 사람 정보만 검색
 	public boolean one(String name) {
+		Student v = null;
 		for(int i = 0; i < allData.length; i++) {
 			v = allData[i];
 			if(v != null && v.getName().equals(name)) {
@@ -79,17 +81,19 @@ public class StudentModel {
 		return j;
 	}
 	//평균점수 검색
-	public float getAvg(String name) {
+	public float getAverage(String name) {
 		return getStudent(name).getAvg();
 	}
-//	//석차 검색
-//	public int getRank(String name) {
-//		int rank = 1;
-//		for(Student v : allData) {
-//			if(v != null && v.getAvg() > getStudent(name).getAvg())
-//				rank++;
-//		}
-//		return rank;
-//	}
+	//석차 검색
+	public int getRank(String name) {
+		int rank = 1;
+		Student v = null;
+		for(int i = 0; i < allData.length; i++)  {
+			v = allData[i];
+			if(v != null && v.getAvg() > getStudent(name).getAvg())
+				rank++;
+		}
+		return rank;
+	}
 	
 }

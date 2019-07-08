@@ -39,22 +39,20 @@ public class StudentController {
 			} else {
 				EndView.printFailure("수정 실패");
 			}
-		}
-		else if(rNo == 6) {	// 평균 점수 검색
-			float avg = log.getAvg("정이본");
+		}else if(rNo == 6) {	// 평균 점수 검색
+			float avg = log.getAverage("정이본");
 			if(log.getStudent("정이본") != null) {
 				EndView.printGetAvgSuccess(avg);
 			} else {
 				EndView.printFailure("존재하지 않는 이름입니다.");
 			}
+		}else if(rNo == 7) {	// 석차 검색
+			int rank = log.getRank("정이본");
+			if(log.getStudent("정이본") != null) {
+				EndView.printGetRankSuccess(rank);
+			} else {
+				EndView.printFailure("존재하지 않는 이름입니다.");
+			}
 		}
-//			else if(rNo == 7) {	// 석차 검색
-//			int rank = log.getRank("정이본");
-//			if(log.getStudent("정이본") != null) {
-//				EndView.printGetRankSuccess(rank);
-//			} else {
-//				EndView.printFailure("존재하지 않는 이름입니다.");
-//			}
-//		}
 	}
 }

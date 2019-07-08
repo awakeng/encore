@@ -4,12 +4,13 @@ public class Student {
 	private String name;
 	private float midTerm;
 	private float finalTerm;
-	private float avg = (midTerm+finalTerm)/2;
+	private float avg;
 	public Student() {}
 	public Student(String name, float midTerm, float finalTerm) {
 		this.name = name;
 		this.midTerm = midTerm;
 		this.finalTerm = finalTerm;
+		avg = (this.midTerm + this.finalTerm)/2;
 	}
 	public String getName() {
 		return name;
