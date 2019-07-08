@@ -22,4 +22,35 @@ public class EndView {
 		}
 	}
 	
+	public void printSuccess(String msg) {
+		System.out.println(msg);
+	}
+	public void printOneSuccess(String msg) {
+		System.out.println(msg);
+	}
+	public void printInsertSuccess(String msg) {
+		System.out.println(msg);
+	}
+	public void printDeleteSuccess(String msg) {
+		System.out.println(msg);
+	}
+	public void printUpdateSuccess(String msg) {
+		System.out.println(msg);
+	}
+//	public void printGetAvgSuccess(float avg) {
+//		System.out.println("해당 학생의 평균 점수는: " + avg + "입니다.");
+//	}
+//	public void printGetRankSuccess(int rank) {
+//		System.out.println("해당 학생의 석차는: " + rank + "입니다.");
+//	}
+	public void printFailure(String msg) {
+		System.out.println(msg);
+	}
+	
+	public String loginSuccess() {
+		return "안녕하세요";
+	}
+	public String loginWarning() {
+		return "관리자 계정으로 시도하세요";
+	}
 }

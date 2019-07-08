@@ -4,9 +4,8 @@ public class Student {
 	private String name;
 	private float midTerm;
 	private float finalTerm;
-	public Student() {
-		super();
-	}
+	private float avg = (midTerm+finalTerm)/2;
+	public Student() {}
 	public Student(String name, float midTerm, float finalTerm) {
 		super();
 		this.name = name;
@@ -22,6 +21,9 @@ public class Student {
 	public void setSocre(float midTerm, float finalTerm) {
 		this.midTerm = midTerm;
 		this.finalTerm = finalTerm;
+	}
+	public float getAvg() {
+		return avg;
 	}
 	public String toString() {
 		return "Student [name=" + name + ", midTerm=" + midTerm + ", finalTerm=" + finalTerm + "]";
