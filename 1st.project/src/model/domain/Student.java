@@ -7,7 +7,6 @@ public class Student {
 	private float avg = (midTerm+finalTerm)/2;
 	public Student() {}
 	public Student(String name, float midTerm, float finalTerm) {
-		super();
 		this.name = name;
 		this.midTerm = midTerm;
 		this.finalTerm = finalTerm;
