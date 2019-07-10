@@ -52,9 +52,10 @@ class Person extends PersonParent {
 	 *    하나라도 다르다면? false
 	 */
 	
-	public boolean equals(Object obj) {		///Object로 받으면 기본 타입 8가지 제외하고 다 받을 수 있다.
+	public boolean equals(Object obj) {		//Object로 받으면 기본 타입 8가지 제외하고 다 받을 수 있다.
+		Person p = null;					//퍼포먼스 위해
 		if(obj instanceof Person) {
-			Person p = (Person) obj;
+			p = (Person) obj;
 			if((p.age == age)&&(p.name.equals(name))) {		// name.equals()이기 때문에(변수 name의 타입이 String이기 때문에) Object.equals()가 아니라 String.equals()이다.
 				return true;
 			}
@@ -62,10 +63,5 @@ class Person extends PersonParent {
 		return false;
 	}
 }
-
-
-
-
-
 
 
