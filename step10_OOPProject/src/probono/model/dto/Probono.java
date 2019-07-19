@@ -1,5 +1,8 @@
 ﻿package probono.model.dto;
 
+import lombok.Data;
+
+@Data
 public class Probono {
 	private String probonoId;//재능 기부 구분을 위한 id
 	private String probonoName;//재능 기부 유형 이름
@@ -13,24 +16,6 @@ public class Probono {
 		this.probonoPurpose = probonoPurpose;
 	}
 	
-	public String getProbonoId() {
-		return probonoId;
-	}
-	public void setProbonoId(String probonoId) {
-		this.probonoId = probonoId;
-	}
-	public String getProbonoName() {
-		return probonoName;
-	}
-	public void setProbonoName(String probonoName) {
-		this.probonoName = probonoName;
-	}
-	public String getProbonoPurpose() {
-		return probonoPurpose;
-	}
-	public void setProbonoPurpose(String probonoPurpose) {
-		this.probonoPurpose = probonoPurpose;
-	}
 
 	@Override
 	public String toString() {

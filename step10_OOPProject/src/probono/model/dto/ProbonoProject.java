@@ -1,5 +1,8 @@
 ﻿package probono.model.dto;
 
+import lombok.Data;
+
+@Data
 public class ProbonoProject {
 
 	private String probonoProjectName; //진행되는 실제 플젝트 이름
@@ -18,37 +21,6 @@ public class ProbonoProject {
 		this.projectContent = projectContent;
 	}
 
-	public String getProbonoProjectName() {
-		return probonoProjectName;
-	}
-	public void setProbonoProjectName(String probonoProjectName) {
-		this.probonoProjectName = probonoProjectName;
-	}
-	public Probono getProbono() {
-		return probono;
-	}
-	public void setProbono(Probono probono) {
-		this.probono = probono;
-	}
-	public Activist getActivist() {
-		return activist;
-	}
-	public void setActivist(Activist activist) {
-		this.activist = activist;
-	}
-	public Recipient getReceive() {
-		return receive;
-	}
-	public void setReceive(Recipient receive) {
-		this.receive = receive;
-	}
-	public String getProjectContent() {
-		return projectContent;
-	}
-	public void setProjectContent(String projectContent) {
-		this.projectContent = projectContent;
-	}
-	
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();

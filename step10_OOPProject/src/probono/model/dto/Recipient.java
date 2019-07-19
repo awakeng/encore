@@ -1,5 +1,8 @@
 ﻿package probono.model.dto;
 
+import lombok.Data;
+
+@Data
 public class Recipient extends People {
 	private String receiveContent;
 
@@ -10,13 +13,6 @@ public class Recipient extends People {
 	}
 	public Recipient(String id, String name, String password, String receiveContent) {
 		super(id, name, password);
-		this.receiveContent = receiveContent;
-	}
-
-	public String getReceiveContent() {
-		return receiveContent;
-	}
-	public void setReceiveContent(String receiveContent) {
 		this.receiveContent = receiveContent;
 	}
 

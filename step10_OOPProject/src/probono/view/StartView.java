@@ -41,6 +41,7 @@ public class StartView {
 		
 		System.out.println();
 		
+		//미 존재하는 프로젝트 검색
 		System.out.println("***** 4. 미존재하는 Project 검색 - 예외처리 확인용 *****");
 		controller.projectView("슈바이처 ---");
 		
@@ -49,6 +50,7 @@ public class StartView {
 		//존재하는 프로젝트 업데이트 test
 		System.out.println("***** 5. 존재하는 Project 수정 후 수정한 Project 검색 *****");
 		controller.updateProject("오드리헵번 프로젝트",  new Recipient("newReceivePeople", "신수혜", "newPw", "무상 파마 지원 받길 원함"));
+//
 		controller.projectView("오드리헵번 프로젝트");
 		
 		System.out.println();
@@ -64,5 +66,13 @@ public class StartView {
 		controller.deleteProject("슈바이처 프로젝트");
 		controller.projectView("슈바이처 프로젝트");
 		
+		//json변환 후 모든 프로젝트 검색
+		System.out.println("***** 8. JSON 변환 후 모든 Project 검색 *****");
+		controller.jsonProjectListView();
+		
+		//특정 프로젝트 검색
+		System.out.println("***** 9. JSON 변환 후 특정 Project 검색 *****");
+		controller.jsonProjectView("오드리헵번 프로젝트");
+		controller.jsonProjectView("슈바이처 프로젝트");
 	}
 }

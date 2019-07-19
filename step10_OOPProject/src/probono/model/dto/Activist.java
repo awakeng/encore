@@ -1,5 +1,8 @@
 ﻿package probono.model.dto;
 
+import lombok.Data;
+
+@Data
 public class Activist extends People{
 	private String major;
 	
@@ -9,13 +12,6 @@ public class Activist extends People{
 	}
 	public Activist(String id, String name, String password, String major) {
 		super(id, name, password);
-		this.major = major;
-	}
-
-	public String getMajor() {
-		return major;
-	}
-	public void setMajor(String major) {
 		this.major = major;
 	}
 
