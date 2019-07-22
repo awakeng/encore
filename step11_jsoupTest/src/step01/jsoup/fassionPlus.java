@@ -56,7 +56,10 @@ public class fassionPlus {
 	}
 	
 }
+//http://www.fashionplus.co.kr/mall/include/comment_list.asp?goods_id_comment=103609315&mall_id=25&redirectPage=/mall/goods/goods.asp?goods_id=103609315
 // http://www.fashionplus.co.kr/mall/include/comment_list.asp?GoTopage=1&block=0&goods_id_comment=103609315
 // http://www.fashionplus.co.kr/mall/include/comment_list.asp?GoTopage=2&block=0&goods_id_comment=103609315
 
 // <p class="reviewbg star_on"></p>
+
+//#review_list > dd > ul > li:nth-child(1) > div.contents > p

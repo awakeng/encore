@@ -8,23 +8,16 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import model.domain.DeptCopy;
+import util.DBUtil;
 
 public class DeptDAO {
-	//oracle driver가 이 소스들이 실행되는 시스템에 인스톨(로딩)
-	//1단계 - driver 로딩
-	static {
-		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-	}
+
 	
 	//모든 부서정부 검색 메소드
 	/* select * from dept_copy;
 	 * ArrayList에 부서 수만큼 DeptCopy 객체 생성해서 저장 후에 ArrayList 반환
 	 */
-	public static ArrayList<DeptCopy> getAllDept() {
+	public static ArrayList<DeptCopy> getAllDept() throws SQLException {
 		Connection con = null;
 		Statement stmt = null;			//Stmt -> java.sql
 		ResultSet rset = null;
@@ -32,7 +25,7 @@ public class DeptDAO {
 		
 		try {
 			// 2단계 DB접속											ip						id		pw
-			con = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521:xe", "SCOTT", "TIGER");  //java language로 db와 소통할 땐 "jdbc:"로 시작
+			con = DBUtil.getConnection();
 			// 3단계 
 			stmt = con.createStatement();											// sql 문장 실행 객체 -> stmt에 저장
 			// 4단계
@@ -49,34 +42,43 @@ public class DeptDAO {
 				// 5단계
 				allData.add(new DeptCopy(rset.getInt("deptno"), rset.getString("dname"), rset.getString("loc")));
 			}
-			
-		}catch(SQLException e) {
-			e.printStackTrace();
 		}finally {	// 6단계 자원 반환
-			try {
-				if(rset != null) {		// rset, stmt, con 순의 순서 중요.
-					rset.close();
-					rset = null;
-				}
-				if(stmt != null) {
-					stmt.close();
-					stmt = null;
-				}
-				if(con != null) {
-					con.close();	// 자원 반환
-					con = null;
-				}
-			} catch(SQLException e) {
-				e.printStackTrace();
-			}
+			DBUtil.close(con, stmt, rset);
 		}
 		return allData;
 	}
 	
+	public static DeptCopy getDept(int dept) throws SQLException {
+		Connection con = null;
+		Statement stmt = null;
+		ResultSet rset = null;
+		DeptCopy deptData = null;
+		
+		try {
+			con = DBUtil.getConnection();
+			stmt = con.createStatement();
+			rset = stmt.executeQuery("select * from dept_copy where deptno =" + dept);
+			
+			if(rset.next()) {
+				deptData = new DeptCopy(rset.getInt("deptno"), rset.getString("dname"), rset.getString("loc"));
+			}
+		} finally {
+			DBUtil.close(con, stmt, rset);
+		}
+		return deptData;
+	}
+	
 	public static void main(String[] args) {
-		ArrayList<DeptCopy> all = getAllDept();
-		for(DeptCopy v : all) {
-			System.out.println(v);
+		ArrayList<DeptCopy> all;
+		try {
+			all = getAllDept();
+			for(DeptCopy v : all) {
+				System.out.println(v);
+			}
+			DeptCopy dept = getDept(10);
+			System.out.println(dept);
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
 	}
 }
