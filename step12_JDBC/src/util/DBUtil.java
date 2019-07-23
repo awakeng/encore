@@ -39,4 +39,19 @@ public class DBUtil {
 			e.printStackTrace();
 		}
 	}
+	
+	public static void close2(Connection con, Statement stmt) {
+		try {						// rset, stmt, con 순의 순서 중요.
+			if(stmt != null) {
+				stmt.close();
+				stmt = null;
+			}
+			if(con != null) {
+				con.close();	// 자원 반환
+				con = null;
+			}
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }

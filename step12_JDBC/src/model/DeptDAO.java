@@ -1,7 +1,7 @@
 package model;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -68,7 +68,36 @@ public class DeptDAO {
 		return deptData;
 	}
 	
+	public static boolean insertEmp01(DeptCopy dept) throws SQLException {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			con = DBUtil.getConnection();
+			pstmt = con.prepareStatement("insert into dept_copy values(?, ?, ?)");
+			
+			//데이터 반영
+			pstmt.setInt(1, dept.getDeptno());
+			pstmt.setString(2, dept.getDname());
+			pstmt.setString(3, dept.getLoc());
+			
+			int r = pstmt.executeUpdate();
+			if(r != 0) {
+				return true;
+			}
+		} finally {
+			DBUtil.close2(con, pstmt);
+		}
+		return false;
+	}
+	
 	public static void main(String[] args) {
+		
+		try {
+			insertEmp01(new DeptCopy(70, "hr", "서초"));
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
 		ArrayList<DeptCopy> all;
 		try {
 			all = getAllDept();
